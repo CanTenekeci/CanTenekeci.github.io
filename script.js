@@ -58,7 +58,7 @@ async function fetchGithubRepos(username) {
     const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&direction=desc`);
     if (!response.ok) return;
     const repos = await response.json();
-    const validRepos = repos.filter(repo => !repo.fork && repo.name !== 'can-tenekeci-portfolio').slice(0, 4);
+    const validRepos = repos.filter(repo => !repo.fork && repo.name !== 'can-tenekeci-portfolio' && repo.name !== 'CanTenekeci.github.io').slice(0, 4);
     let indexCount = projectsGrid.children.length;
 
     for (const repo of validRepos) {
